@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 30px;
+        }
+        input, select, button {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button {
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        .screen {
+            width: 60%;
+            height: 50px;
+            background-color: gray;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .seat-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+        .seat {
+            width: 40px;
+            height: 40px;
+            background-color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .seat.selected {
+            background-color: green;
+        }
+        .gap {
+            width: 20px;
+        }
+        .payment-section img {
+            width: 120px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #qrSection {
+            display: none;
+            margin-top: 20px;
+        }
+        #qrCodeImage {
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="container" id="login-section">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Movie Selection -->
+    <div class="container" id="movie-selection" style="display:none;">
+        <h2>Select Movie Details</h2>
+        <label>Select Theater:</label>
+        <select id="theater">
+            <option value="Akash">Akash</option>
+            <option value="Maruthi">Maruthi</option>
+            <option value="Bharathi">Bharathi</option>
+            <option value="Mohan">Mohan</option>
+            <option value="Govardhan">Govardhan</option>
+        </select>
+        <label>Select Show Timing:</label>
+        <select id="timing">
+            <option value="10:30 AM">10:30 AM</option>
+            <option value="1:30 PM">1:30 PM</option>
+            <option value="4:30 PM">4:30 PM</option>
+            <option value="7:30 PM">7:30 PM</option>
+            <option value="10:30 PM">10:30 PM</option>
+        </select>
+        <label>Select Date:</label>
+        <input type="date" id="date">
+        <button onclick="showSeatSelection()">Select Seats</button>
+    </div>
+
+    <!-- Seat Selection -->
+    <div id="seat-section" style="display:none;">
+        <h3 id="summary"></h3>
+        <div class="screen">MOVIE SCREEN</div>
+        <div class="seat-layout" id="seatContainer"></div>
+        <h3>Total Amount: ₹<span id="totalAmount">0</span></h3>
+        <button onclick="showPaymentOptions()">Proceed to Payment</button>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="container" id="payment-section" style="display:none;">
+        <h3>Pay Using:</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Google_Pay_logo.svg" 
+             alt="Google Pay" onclick="showQR()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/PhonePe_Logo.png" 
+             alt="PhonePe" onclick="showQR()">
+
+        <!-- QR Code Display -->
+        <div id="qrSection">
+            <h3>Scan to Pay</h3>
+            <img id="qr.jpeg" width="250">
+            <br>
+            <button id="payNowBtn" style="display:none;" onclick="redirectToUPI()">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if (username && password) {
+                alert("Login Successful!");
+                document.getElementById("login-section").style.display = "none";
+                document.getElementById("movie-selection").style.display = "block";
+            } else {
+                alert("Please enter valid credentials!");
+            }
+        }
+
+        function showSeatSelection() {
+            let date = document.getElementById("date").value;
+            if (!date) {
+                alert("Please select a date!");
+                return;
+            }
+            document.getElementById("movie-selection").style.display = "none";
+            document.getElementById("seat-section").style.display = "block";
+            document.getElementById("summary").innerText = 
+                `Theater: ${document.getElementById("theater").value}, Show: ${document.getElementById("timing").value}, Date: ${date}`;
+            generateSeats();
+        }
+
+        function generateSeats() {
+            const seatContainer = document.getElementById("seatContainer");
+            seatContainer.innerHTML = "";
+            let seatNumber = 1;
+            for (let row = 0; row < 10; row++) {
+                let rowDiv = document.createElement("div");
+                rowDiv.classList.add("row");
+                for (let col = 0; col < 15; col++) {
+                    if (col === 5 || col === 10) {
+                        rowDiv.appendChild(document.createElement("div")).classList.add("gap");
+                    }
+                    let seat = document.createElement("div");
+                    seat.classList.add("seat");
+                    seat.innerText = seatNumber++;
+                    seat.onclick = () => {
+                        seat.classList.toggle("selected");
+                        updateTotal();
+                    };
+                    rowDiv.appendChild(seat);
+                }
+                seatContainer.appendChild(rowDiv);
+            }
+        }
+
+        function updateTotal() {
+            let selectedSeats = document.querySelectorAll(".seat.selected").length;
+            let total = selectedSeats * 100 + (selectedSeats > 0 ? 40 : 0);
+            document.getElementById("totalAmount").innerText = total;
+        }
+
+        function showPaymentOptions() {
+            document.getElementById("seat-section").style.display = "none";
+            document.getElementById("payment-section").style.display = "block";
+        }
+
+        function redirectToUPI() {
+            window.location.href = "upi://pay?pa=premhp2811@okicici&pn=MovieBooking&am=" + document.getElementById("totalAmount").innerText + "&cu=INR";
+        }
+    </script>
+
+</body>
+</html>

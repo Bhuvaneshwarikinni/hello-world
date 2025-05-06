@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moving Image</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .jerky-image {
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        .movie-container {
+            display: inline-block;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        marquee {
+            white-space: nowrap;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .recommended-heading {
+            color: white;
+            text-align: left;
+            margin-left: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+ <marquee behavior="scroll" direction="left" scrollamount="10">
+        <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt23875550/" target="_blank">
+                <img src=https://m.media-amazon.com/images/M/MV5BNjExZDlkNmMtZDUyZS00MjMxLTgxNDYtNWRhYzA4NzU0NjE2XkEyXkFqcGc@._V1_.jpg.jpg" class="jerky-image" alt="UI Movie">
+            </a>
+            <p>UI</p>
+            <p>IMDB: 9.3</p>
+        </div>
+
+</body>
+</html>

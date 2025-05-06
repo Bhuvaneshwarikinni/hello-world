@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moving Image</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        .language-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px auto;
+            flex-wrap: nowrap; /* Ensures buttons stay in a row */
+            overflow-x: auto; /* Enables horizontal scrolling if needed */
+            white-space: nowrap;
+        }
+
+        .language-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .language-button:hover {
+            background-color: #b71c1c;
+        }
+
+        marquee {
+            white-space: nowrap;
+        }
+
+        .movie-container {
+            display: inline-block;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .jerky-image {
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .recommended-heading {
+            color: white;
+            text-align: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>It All Starts Here!!</h1>
+
+    <!-- Language Selection Buttons -->
+    <div class="language-container">
+        <a href="kannada.html" class="language-button">Kannada</a>
+        <a href="english1.html" class="language-button">English</a>
+	<a href="telgu.html" class="language-button">Telugu</a>	
+        <a href="hindi.html" class="language-button">Hindi</a>
+        
+        <a href="tamil.html" class="language-button">Tamil</a>
+        <a href="malayalam.html" class="language-button">Malayalam</a>
+        <a href="bengali.html" class="language-button">Bengali</a>
+        <a href="odia.html" class="language-button">Odia</a>
+        <a href="spanish.html" class="language-button">Spanish</a>
+    </div>
+
+    <marquee behavior="scroll" direction="left" scrollamount="10">
+        <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt23875550/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNjExZDlkNmMtZDUyZS00MjMxLTgxNDYtNWRhYzA4NzU0NjE2XkEyXkFqcGc@._V1_.jpg" class="jerky-image" alt="UI Movie">
+            </a>
+            <p>UI</p>
+            <p>IMDB: 9.3</p>
+        </div>
+
+        <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt11281192/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjFiZDc0NTQtM2I1My00Yzk0LThmM2ItZWZhZjU4ZTI3ODQ1XkEyXkFqcGc@._V1_.jpg" class="jerky-image" alt="Qalb Movie">
+            </a>
+            <p>Qalb</p>
+            <p>IMDB: 8.9</p>
+        </div>
+
+      <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt25506052/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a8/Choo_Mantar.jpg" class="jerky-image" alt="Choo Mantar Movie">
+
+            </a>
+            <p>Choo Mantar</p>
+            <p>IMDB: 9.1</p>
+        </div>
+
+        <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt32080876/" target="_blank">
+                <img src="https://media-cache.cinematerial.com/p/500x/yi5zsmuv/dragon-indian-movie-poster.jpg?v=1737590599.jpg" class="jerky-image" alt="Dragon Movie">
+            </a>
+            <p>Dragon</p>
+            <p>IMDB: 9.3</p>
+        </div>
+
+        <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt14513804/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZGZlZWMyZDUtNGMxYS00NmNhLTliNTgtZmYzNDg0NmJmNDRhXkEyXkFqcGc@._V1_.jpg" class="jerky-image" alt="Movie Captain America">
+
+            </a>
+            <p>Captain America: Brave New World</p>
+            <p>IMDB: 8.6</p>
+        </div>
+
+        <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt33075129/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Nodidavaru_Enanthare.jpg/220px-Nodidavaru_Enanthare.jpg.jpg" class="jerky-image" alt="Nodidavaru Enantare Movie">
+            </a>
+            <p>Nodidavaru Enantare</p>
+            <p>IMDB: 8.9</p>
+        </div>
+       
+        <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt15327088/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNjkxZDRhYTYtODY1YS00MDlhLWJiMjgtOWUxNzlkYWY0M2ZhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg.jpg" class="jerky-image" alt="Kantara Movie">
+            </a>
+            <p>Kantara-1</p>
+            <p>IMDB: 9.8</p>
+        </div>
+
+      <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt27530512/" target="_blank">
+                <img src="https://i.pinimg.com/736x/4e/22/c3/4e22c3efe34be256330f70eb3ddc5436.jpg" class="jerky-image" alt="Toxic Movie">
+            </a>
+            <p>Toxic</p>
+            <p>Advanced Booking</p>
+        </div>
+
+       <div class="movie-container">
+            <a href="https://www.imdb.com/title/tt4833824/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYmYyYTE0MTYtYzgxMi00ZGU3LWI4NzUtZDFlZjBmY2IxNjlmXkEyXkFqcGc@._V1_.jpg.jpg" class="jerky-image" alt="Uppi 2 Movie">
+            </a>
+            <p>Uppi 2</p>
+            <p>IMDB: 9.4</p>
+        </div>
+    </marquee>
+
+    <h1 class="recommended-heading">Recommended Movies</h1>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://static.toiimg.com/photo/118575012.cms.jpg" class="jerky-image" alt="Rakshasa Movie">
+        </a>
+        <p>Rakshasa</p>
+        <p>Horror/Thriller</p>
+    </div>
+
+
+
+   <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX4k4hWIPIWsRzodjmwlArrokh8ylGHmuUnQ&s.jpg" class="jerky-image" alt="Kingston Movie">
+        </a>
+        <p>Kingston</p>
+        <p>Adventure/Comedy/Fantasy</p>
+    </div>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://m.media-amazon.com/images/M/MV5BNGQ1NjNhYjQtNmU4NS00ODQ5LWEwNWQtODA3NzgxM2RiMDY0XkEyXkFqcGc@._V1_.jpg" class="jerky-image" alt="Crazy Movie">
+        </a>
+        <p>Crazy</p>
+        <p>Drama/Thriller</p>
+    </div>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://m.media-amazon.com/images/M/MV5BYjBiYzNhYzctOGJmYy00NmRlLTlhZmItM2Y1Zjg3NzAyMmZlXkEyXkFqcGc@._V1_.jpg" class="jerky-image" alt="Interval Movie">
+        </a>
+        <p>Interval</p>
+        <p>Comedy/Drama</p>
+    </div>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://in.bmscdn.com/events/moviecard/ET00406059.jpg" class="jerky-image" alt="Kapati Movie">
+        </a>
+        <p>Kapati</p>
+        <p>Comedy/Horror/Thriller</p>
+    </div>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://m.media-amazon.com/images/M/MV5BYTM1MDE3NDgtOTFjYy00YzJkLTlkNDctNDhhYmE5ZTdiMzdlXkEyXkFqcGc@._V1_.jpg" class="jerky-image" alt="Mithya Movie">
+        </a>
+        <p>Mithya</p>
+        <p>Inspiring</p>
+    </div>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://assetscdn1.paytm.com/images/cinema/Gentlewomen-Gallery-e5eb7ed0-ed05-11ef-8b9d-63daeae479d9.jpg" class="jerky-image" alt="Gentlewomen Movie">
+        </a>
+        <p>Gentlewomen</p>
+        <p>Inspiring/International</p>
+    </div>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://m.media-amazon.com/images/M/MV5BYjVmNzA3Y2MtOWQxZC00MzE1LTk5ZGYtMWI0YTU5MmNlNzMwXkEyXkFqcGc@._V1_.jpg" class="jerky-image" alt="Kanasondu Shuruvagide Movie">
+        </a>
+        <p>Kanasondu Shuruvagide</p>
+        <p>Love/Comedy</p>
+    </div>
+
+    <div class="movie-container">
+        <a href="movielogin.html" target="_blank">
+            <img src="https://m.media-amazon.com/images/M/MV5BMjNmZDA4ZjUtYWU5NC00Y2NiLWFiZDUtN2YxNTE5YTE2MDA4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" class="jerky-image" alt="Kanasondu Shuruvagide Movie">
+        </a>
+        <p>Monsoon Raaga</p>
+        <p>Romance/Drama</p>
+    </div>
+
+</body>
+</html>
